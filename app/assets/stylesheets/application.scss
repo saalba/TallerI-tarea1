@@ -1,17 +1,4 @@
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
-@import 'bootstrap/theme';
-
-div.jumbotron {
-  margin-top: -10px;
-  background-image: image-url("header.jpg");
-  background-position: 0% 25%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: white;
-}/*
+/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *

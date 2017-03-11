@@ -1,10 +1,5 @@
 css:
-  head {
-      padding-top: -50px;
-  }
-  body {
-      padding-top: 60px;
-    }
+
 
 //= require bootstrap
 doctype html
@@ -14,24 +9,31 @@ html
   script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
 
   head
-      nav.navbar.navbar-inverse
-        .container-fluid
-          .navbar-header
-            a.navbar-brand href="#"  WebSiteName
-          ul.nav.navbar-nav
+
+
+    nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          a.navbar-brand href=""  Enol
+        - if((controller_name == "articles" && action_name == "index"))
+          ul.nav.navbar-nav.navbar-right
+            li
+              = link_to(:controller => "/articles", :action => "new") do
+                     span.glyphicon.glyphicon-edit>  New Article
+
+        ul.nav.navbar-nav
               li
                 = link_to(:controller => "/home", :action => "index") do
                          span.glyphicon.glyphicon-home>  Home
               li
                 = link_to(:controller => "/articles", :action => "index") do
-                         span.glyphicon.glyphicon-home>  Administration
+                         span.glyphicon.glyphicon-wrench>  Administration
 
+      .jumbotron.text-center
+        h1 ENOL
+        h2 El Noticiero Online
+        p Noticias del momento
 
-        .jumbotron.text-center
-          h1 EPIC Lab
-          h1 Radar
-          p Investigación basada en evidencia
-          p para fortalecer políticas de emprendimiento
 
   body
   .page-content.container
@@ -40,3 +42,5 @@ html
       p.alert.alert-success= notice
     - if alert
       p.alert.alert-danger= alert
+
+  br

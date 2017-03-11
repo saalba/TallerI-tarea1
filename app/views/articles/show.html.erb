@@ -1,39 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @article.title %>
+  <h1><%= @article.title %></h1>
 </p>
 
 <p>
-  <strong>Subtitle:</strong>
-  <%= @article.subtitle %>
+  <strong><%= @article.subtitle %></strong>
 </p>
 
 <p>
-  <strong>Body:</strong>
   <%= @article.body %>
 </p>
 
 <h2>Comentaries</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Body</th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @comentaries.each do |comentary| %>
-      <tr>
-        <td><%= comentary.user %></td>
-        <td><%= comentary.body %></td>
-      </tr>
+      <p>
+        <p><%= comentary.user %>:</p>
+        <p><%= comentary.body %></p>
+      </p>
     <% end %>
-  </tbody>
-</table>
+
 
 <h2>New comentary</h2>
 <%= render 'comentaries/form', comentary: @comentary %>

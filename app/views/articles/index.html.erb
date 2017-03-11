@@ -1,29 +1,42 @@
+<style>
+h4   {background-color: powderblue;}
+</style>
 <p id="notice"><%= notice %></p>
 
-<h1>Articles</h1>
+<h1>Administration</h1>
+
+<% @articles.each do |article| %>
+  <h4>
+    <br>
+    <h3>
+      <%= article.title %>
+    </h3>
+    <br>
+    <strong>
+      <%= article.subtitle %>
+    </strong>
+    <br>
+    <br>
+    <p>
+        <%= article.body %>
+    </p>
+  </h4>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Subtitle</th>
-      <th>Body</th>
       <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @articles.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
-        <td><%= article.subtitle %></td>
-        <td><%= article.body %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
         <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
+<% end %>
 
 <br>
 
