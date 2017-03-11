@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Administration', controller: 'articles', action: 'index' %>
+
+
+<h1>Articles</h1>
+
+<% @articles.each do |article| %>
+  <br>
+  <h1>
+    <%= article.title %>
+  </h1>
+  <br>
+  <h3>
+    <%= article.subtitle %>
+  </h3>
+
+  <p>
+    <% if article.body.length() > 1000 %>
+      <%=   truncate(article.body, :length => 1000) %>
+      <br>
+      <%= link_to 'see full notice and coments', article %>
+
+    <% else%>
+      <%= article.body %>
+      <br>
+      <%= link_to 'see coments', article %>
+    <%end%>
+  </p>
+
+
+<% end %>
+
+<br>

@@ -1,0 +1,42 @@
+css:
+  head {
+      padding-top: -50px;
+  }
+  body {
+      padding-top: 60px;
+    }
+
+//= require bootstrap
+doctype html
+html
+  == stylesheet_link_tag "application"
+  == javascript_include_tag 'application'
+  script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
+
+  head
+      nav.navbar.navbar-inverse
+        .container-fluid
+          .navbar-header
+            a.navbar-brand href="#"  WebSiteName
+          ul.nav.navbar-nav
+              li
+                = link_to(:controller => "/home", :action => "index") do
+                         span.glyphicon.glyphicon-home>  Home
+              li
+                = link_to(:controller => "/articles", :action => "index") do
+                         span.glyphicon.glyphicon-home>  Administration
+
+
+        .jumbotron.text-center
+          h1 EPIC Lab
+          h1 Radar
+          p Investigación basada en evidencia
+          p para fortalecer políticas de emprendimiento
+
+  body
+  .page-content.container
+    == content_for?(:content) ? yield(:content) : yield
+    - if notice
+      p.alert.alert-success= notice
+    - if alert
+      p.alert.alert-danger= alert

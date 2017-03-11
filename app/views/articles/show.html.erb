@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @article.subtitle %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+
+<h2>Comentaries</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comentaries.each do |comentary| %>
+      <tr>
+        <td><%= comentary.user %></td>
+        <td><%= comentary.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>New comentary</h2>
+<%= render 'comentaries/form', comentary: @comentary %>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', controller: 'home', action: 'index' %>

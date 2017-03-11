@@ -1,0 +1,30 @@
+<%= form_for(@comentary) do |f| %>
+  <% if comentary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comentary.errors.count, "error") %> prohibited this comentary from being saved:</h2>
+
+      <ul>
+      <% comentary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %>
+    <%= f.text_field :user %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :article_id, :value => params[:id] %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
